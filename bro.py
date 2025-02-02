@@ -4,7 +4,7 @@ import fitz  # PyMuPDF
 import random
 
 # Initialize Gemini API
-genai.configure(api_key='AIzaSyBNYRyd3WKy3M_pEcGo_pY5VUAkmH1tJVo')
+genai.configure(api_key='YOUR_API_KEY')
 gemini = genai.GenerativeModel('gemini-pro')
 
 def extract_text_from_pdf(pdf_file):
