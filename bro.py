@@ -2,10 +2,19 @@ import streamlit as st
 import google.generativeai as genai
 import fitz  # PyMuPDF
 import random
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
 
 # Initialize Gemini API
-genai.configure(api_key='YOUR_API_KEY')
-gemini = genai.GenerativeModel('gemini-pro')
+if api_key:
+    genai.configure(api_key=api_key)
+    gemini = genai.GenerativeModel('gemini-pro')
+else:
+    st.error("API key not found. Please set it in the .env file.")
 
 def extract_text_from_pdf(pdf_file):
     """Extract text from a PDF file."""
